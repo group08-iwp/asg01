@@ -6,33 +6,67 @@
     <title>Categorize the meal!</title>
 
     <style type="text/css">
+         /* putting on fonts
+        Browse Fonts - Google Fonts. (n.d.). Google Fonts. https://fonts.google.com/ (accessed date: 10 March 2025)*/
         @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         /*GRID TEMPLATES*/
-        header, footer, main{display: flex;}
-        header, footer{position: fixed; width: 100%; height: 80px; background-color: lightgray; color: black;
-                        text-align: center; align-items: center; justify-content: center; font-size: 1.5rem;
-                        font-weight: bold; z-index: 1000;}
+        header, footer {
+            position: fixed;
+            width: 100%;
+            height: 80px;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.15);
+            color: #000;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
 
-        header{ top: 0; left: 0;}
+        header {
+            top: 0;
+            left: 0;
+        }
 
-        footer{bottom: 0; left: 0;}
-
-        main{margin-top: 100px; margin-bottom: 80px; justify-content: center; flex-wrap: wrap; gap: 30px;
-            padding: 20px; max-width: 1000px;}
-
-
-        /*BACKGROUND ANIMATION :*/
-
-        body {
+        main {
+            margin: 200px auto 120px auto;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
+            flex-wrap: nowrap;
+            gap: 30px;
+            padding: 20px;
+            max-width: 1000px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /*BACKGROUND ANIMATION: 
+        Pattern Infinite scrolling animation. (n.d.). CodePen. https://codepen.io/adamabundis/pen/PoYgvYQ (accessed date: 12 March 2025)
+        Changed the image that suits with the theme, customized the keyframe*/
+
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
             font-family: "Fredoka One", cursive;
         }
 
+        body {
+            background: #fff;
+        }
+
+        /* image sample:
+        M, Shahin. (n.d.). Vegetable Illustration. https://www.vecteezy.com/vector-art/26595817-hand-drawn-seamless-pattern-of-vegetables-vector-illustration-free-vector (accessed date: 13 March 2025)*/
         .wrapper {
             position: fixed;
             top: 0;
@@ -40,9 +74,12 @@
             width: 100%;
             height: 100vh;
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-            url("https://static.vecteezy.com/system/resources/previews/026/595/817/non_2x/hand-drawn-seamless-pattern-of-vegetables-illustration-free-free-vector.jpg"),
+                url("https://static.vecteezy.com/system/resources/previews/026/595/817/non_2x/hand-drawn-seamless-pattern-of-vegetables-illustration-free-free-vector.jpg"),
                 #111111;
-            animation: scroll 10s linear infinite;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            animation: scroll 35s linear infinite;
             z-index: -1;
         }
 
@@ -52,14 +89,13 @@
             }
         }
 
-/*        Pattern Infinite scrolling animation. (n.d.). CodePen. https://codepen.io/adamabundis/pen/PoYgvYQ*/
-
         footer {
-            display: flex;
-            justify-content: center;
+            bottom: 0;
+            left: 0;
             gap: 10px;
             padding: 10px;
-            }
+            justify-content: center;
+        }
 
         footer a {
             padding: 10px 15px;
@@ -68,7 +104,15 @@
             cursor: pointer;
             background-color: white;
             border: 2px solid black;
-            border-radius: 5px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #000;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            background-color: black;
+            color: white;
         }
 
         .drop-box-container {
